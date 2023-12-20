@@ -1,4 +1,5 @@
 #include <iostream>
+#include<string>
 using namespace std;
 
 int get_x(char Samaon[], int n, char element) {
@@ -27,6 +28,8 @@ int main()
 {
 	string PlainText = "MATOU TE TATALO MO KASA";
 	string CipheredText = PlainText;
+	string PlainText_;
+	string CipheredText_;
 	char Samoan[] = {'A' , 'E' , 'I' , 'O' , 'U' , 'F' , 'G' , 'L' ,
 					 'M' , 'N' , 'P' , 'S' , 'T' , 'V' , 'H' , 'K' ,
 					 'R' , '’' , 'a' , 'e' , 'i' , 'o' , 'u' , 'f' ,
@@ -36,11 +39,24 @@ int main()
 					 ' '};
 
 	int n = sizeof(Samoan);
-	int a, b;
+	int a, b , choice;
 	cout << "Enter the Affine keys a and b\n";
 	cout << "a : "; cin >> a;
 	cout << "b : "; cin >> b;
 	Cipher(Samoan, n, a, b, PlainText , CipheredText);
 	cout << PlainText << endl;
 	cout << CipheredText << endl;
+
+	cout << "If you want to enter your own text press 1\n";
+	cin >> choice;
+	while (choice == 1) {
+		cout << "Enter the text you want Ciphered\n";
+		cin.ignore();
+		getline(cin, PlainText_);
+		CipheredText_ = PlainText_;
+		Cipher(Samoan, n, a, b, PlainText_, CipheredText_);
+		cout << CipheredText_ << endl;
+		cout << "Do you want to enter another word ? Press 1 if Yes or any for No\n";
+		cin >> choice;
+	}
 }
