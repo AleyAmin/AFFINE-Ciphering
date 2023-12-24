@@ -23,7 +23,7 @@ void Cipher(char Samoan[], int n, int a, int b, string& PlainText , string& Ciph
 	}
 }
 
-// The next 2 functions (Decipher and modInverse) are to make sure the code runs properly
+// The next 2 commented functions (Decipher and modInverse) are to make sure the code runs properly
 
 //int modInverse(int a, int m) {
 //	a = a % m;
