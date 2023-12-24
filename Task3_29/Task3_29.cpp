@@ -23,27 +23,28 @@ void Cipher(char Samoan[], int n, int a, int b, string& PlainText , string& Ciph
 	}
 }
 
-// The next 2 commented functions (Decipher and modInverse) are to make sure the code runs properly
-int modInverse(int a, int m) {
-	a = a % m;
-	for (int x = 1; x < m; x++)
-		if ((a * x) % m == 1)
-			return x;
-	return -1;
-}
+// The next 2 functions (Decipher and modInverse) are to make sure the code runs properly
 
-void Decipher(char Samoan[], int n, int a, int b, string& PlainText, string& CipheredText) {
-	int plainIndex;
-	for (int i = 0; i < CipheredText.size(); i++) {
-		int y = get_x(Samoan, n, CipheredText[i]);
-		if (y != -1) {
-			plainIndex = (modInverse(a, n) * (y - b + n)) % n; ;
-			PlainText[i] = Samoan[plainIndex];
-		}
-		else
-			PlainText[i] = '*';
-	}
-}
+//int modInverse(int a, int m) {
+//	a = a % m;
+//	for (int x = 1; x < m; x++)
+//		if ((a * x) % m == 1)
+//			return x;
+//	return -1;
+//}
+//
+//void Decipher(char Samoan[], int n, int a, int b, string& PlainText, string& CipheredText) {
+//	int plainIndex;
+//	for (int i = 0; i < CipheredText.size(); i++) {
+//		int y = get_x(Samoan, n, CipheredText[i]);
+//		if (y != -1) {
+//			plainIndex = (modInverse(a, n) * (y - b + n)) % n; ;
+//			PlainText[i] = Samoan[plainIndex];
+//		}
+//		else
+//			PlainText[i] = '*';
+//	}
+//}
 
 
 
@@ -71,9 +72,9 @@ int main()
 	cout << PlainText << endl;
 	cout << CipheredText << endl;
 
-	string DecipheredText = CipheredText;
+	/*string DecipheredText = CipheredText;
 	Decipher(Samoan, n, a, b, DecipheredText, CipheredText);
-	cout << DecipheredText << endl;
+	cout << DecipheredText << endl;*/
 
 	cout << "If you want to enter your own text press 1\n";
 	cin >> choice;
